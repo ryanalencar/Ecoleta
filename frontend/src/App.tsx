@@ -1,11 +1,10 @@
 import React from 'react';
-import Header from './Header';
 import './App.css';
 
+import Routes from './routes';
+
 function App() {
-  return (
-    <Header title="Hello World" />
-  );
+  return <Routes />;
 }
 
 export default App;
