@@ -1,120 +1,121 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import { Map, TileLayer, Marker } from 'react-leaflet';
+import api from '../../services/api';
 
 import './styles.css';
 import logo from '../../assets/logo.svg';
 
-const CreatePoint = () => (
-  <div id="page-create-point">
-    <header>
-      <img src={logo} alt="Ecoleta" />
+interface Item {
+  id: number;
+  title: string;
+  image_url: string;
+}
 
-      <Link to="/">
-        <FiArrowLeft />
-        Voltar para Home
-      </Link>
-    </header>
+function CreatePoint() {
+  const [items, setItems] = useState<Item[]>([]);
 
-    <form>
-      <h1>
-        Cadastro do
-        <br />
-        ponto de coleta
-      </h1>
+  useEffect(() => {
+    api.get('items').then((response) => {
+      setItems(response.data);
+    });
+  }, []);
 
-      <fieldset>
-        <legend>
-          <h2>Dados</h2>
-        </legend>
-        <div className="field">
-          <label htmlFor="name">Nome da entidade</label>
-          <input type="text" name="name" id="name" />
-        </div>
+  return (
+    <div id="page-create-point">
+      <header>
+        <img src={logo} alt="Ecoleta" />
 
-        <div className="field-group">
+        <Link to="/">
+          <FiArrowLeft />
+          Voltar para Home
+        </Link>
+      </header>
+
+      <form>
+        <h1>
+          Cadastro do
+          <br />
+          ponto de coleta
+        </h1>
+
+        <fieldset>
+          <legend>
+            <h2>Dados</h2>
+          </legend>
           <div className="field">
-            <label htmlFor="name">E-mail</label>
-            <input type="email" name="email" id="email" />
+            <label htmlFor="name">Nome da entidade</label>
+            <input type="text" name="name" id="name" />
           </div>
-          <div className="field">
-            <label htmlFor="whatsapp">Whatsapp</label>
-            <input type="text" name="whatsapp" id="whatsapp" />
+
+          <div className="field-group">
+            <div className="field">
+              <label htmlFor="name">E-mail</label>
+              <input type="email" name="email" id="email" />
+            </div>
+            <div className="field">
+              <label htmlFor="whatsapp">Whatsapp</label>
+              <input type="text" name="whatsapp" id="whatsapp" />
+            </div>
           </div>
-        </div>
-      </fieldset>
+        </fieldset>
 
-      <fieldset>
-        <legend>
-          <h2>Endereço</h2>
-          <span>Selecione o endereço no mapa</span>
-        </legend>
+        <fieldset>
+          <legend>
+            <h2>Endereço</h2>
+            <span>Selecione o endereço no mapa</span>
+          </legend>
 
-        <Map center={[-3.7711143, -38.6005319]} zoom={15}>
-          <TileLayer
-            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
+          <Map center={[-3.7711143, -38.6005319]} zoom={15}>
+            <TileLayer
+              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
 
-          <Marker position={[-3.7711143, -38.6005319]} />
-        </Map>
+            <Marker position={[-3.7711143, -38.6005319]} />
+          </Map>
 
-        <div className="field-group">
-          <div className="field">
-            <label htmlFor="uf">Estado(UF)</label>
-            <select name="uf" id="uf">
-              <option value="0">Selecione uma UF</option>
-            </select>
+          <div className="field-group">
+            <div className="field">
+              <label htmlFor="uf">Estado(UF)</label>
+              <select name="uf" id="uf">
+                <option value="0">Selecione uma UF</option>
+              </select>
+            </div>
+            <div className="field">
+              <label htmlFor="city">Cidade</label>
+              <select name="city" id="city">
+                <option value="0">Selecione uma Cidade</option>
+              </select>
+            </div>
           </div>
-          <div className="field">
-            <label htmlFor="city">Cidade</label>
-            <select name="city" id="city">
-              <option value="0">Selecione uma Cidade</option>
-            </select>
-          </div>
-        </div>
-      </fieldset>
+        </fieldset>
 
-      <fieldset>
-        <legend>
-          <h2>Ítens de coleta</h2>
-          <span>Selecione um ou mais ítens abaixo</span>
-        </legend>
+        <fieldset>
+          <legend>
+            <h2>Ítens de coleta</h2>
+            <span>Selecione um ou mais ítens abaixo</span>
+          </legend>
 
-        <ul className="items-grid">
-          <li className="selected">
-            <img src="http://localhost:3333/uploads/lampadas.svg" alt="Teste" />
-            <span>Óleo de cozinha</span>
-          </li>
-          <li className="selected">
-            <img src="http://localhost:3333/uploads/lampadas.svg" alt="Teste" />
-            <span>Óleo de cozinha</span>
-          </li>
-          <li className="selected">
-            <img src="http://localhost:3333/uploads/lampadas.svg" alt="Teste" />
-            <span>Óleo de cozinha</span>
-          </li>
-          <li className="selected">
-            <img src="http://localhost:3333/uploads/lampadas.svg" alt="Teste" />
-            <span>Óleo de cozinha</span>
-          </li>
-          <li className="selected">
-            <img src="http://localhost:3333/uploads/lampadas.svg" alt="Teste" />
-            <span>Óleo de cozinha</span>
-          </li>
-          <li className="selected">
-            <img src="http://localhost:3333/uploads/lampadas.svg" alt="Teste" />
-            <span>Óleo de cozinha</span>
-          </li>
-        </ul>
-      </fieldset>
+          <ul className="items-grid">
+            {
+              items.map((item) => (
+                <li className="selected" key={item.id}>
+                  <img src={item.image_url} alt="" />
+                  <span>{item.title}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </fieldset>
 
-      <button type="submit">
-        Cadastrar ponto de coleta
-      </button>
-    </form>
-  </div>
-);
+        <button type="submit">
+          Cadastrar ponto de coleta
+        </button>
+      </form>
+    </div>
+  );
+}
 
 export default CreatePoint;
