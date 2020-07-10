@@ -103,5 +103,5 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 ---
 
 <h4 align="center">
-    Feito com 💜 by <a href="https://www.linkedin.com/in/ryan-a-a3559a12b/" target="_blank">Vitor Serrano</a>
+    Feito com 💜 by <a href="https://www.linkedin.com/in/ryan-a-a3559a12b/" target="_blank">Ryan Alencar</a>
 </h4>
