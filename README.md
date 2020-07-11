@@ -15,7 +15,6 @@
 # Índice
 
 - [Sobre](#sobre)
-- [Documentação](#documentacao)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Como Usar](#como-usar)
 - [Como Contribuir](#como-contribuir)
@@ -28,7 +27,6 @@ O <strong>Ecoleta</strong> é uma aplicação Web e Mobile para ajudar pessoas a
 
 Essa aplicação foi construída na semana de maior aprendizado em programação da terra, a Next Level Week</strong> distribuída pela [Rocketseat](https://rocketseat.com.br/). A ideia de criar uma aplicação voltada ao meio ambiente surgiu da coincidência da data do curso e a data da <strong>semana do meio ambiente</strong>
 
-<a id="documentacao"></a>
 
 ## :rocket: Tecnologias Utilizadas
 
