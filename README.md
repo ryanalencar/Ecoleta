@@ -39,7 +39,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 ## :heavy_check_mark: :computer: Resultado Web
 
 <h1 align="center">
-    <img alt="Web" src=".github/Video.gif" width="900px">
+    <img alt="Web" src=".github/video.gif" width="900px">
 </h1>
 
 <a id="como-usar"></a>
