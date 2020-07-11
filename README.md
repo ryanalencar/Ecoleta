@@ -52,7 +52,6 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 
   - É **necessário** possuir o **[Node.js](https://nodejs.org/en/)** instalado na máquina (é recomendado a versão mais atualizada e estável)
   - Também, é **preciso** ter um gerenciador de pacotes seja o **[NPM](https://www.npmjs.com/)** ou **[Yarn](https://yarnpkg.com/)**.
-  - Por fim, é **essencial** ter o **[Expo](https://expo.io/)** instalado de forma global na máquina
 
 1. Faça um clone :
 
@@ -76,10 +75,6 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 
   # Inicie a aplicação web
   $ cd web
-  $ npm start
-
-  # Inicie a aplicação mobile
-  $ cd mobile
   $ npm start
 ```
 
